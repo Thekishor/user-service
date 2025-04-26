@@ -1,0 +1,31 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user-service
+    username: postgres
+    password: kishor@2233#
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: live.smtp.mailtrap.io
+    port: 587
+    username: smtp@mailtrap.io
+    password: e439805fd2ce92c03884deaab6c9c730
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+      domain_name: java22@demomailtrap.co
+
+token:
+  expiration:
+    minutes: 2
