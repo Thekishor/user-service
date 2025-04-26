@@ -3,13 +3,11 @@
 A Spring Boot microservice for user management that handles registration, email verification, password reset, password changes, and token expiration.  
 Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for production-ready deployment.
 
----
 
 ## Project Structure
 ## User-Service
-![user-service](https://github.com/user-attachments/assets/493172ab-4509-43da-921f-225f2720e703)
 
-
+![user-servise](https://github.com/user-attachments/assets/a0cc1a7e-e89e-4ebe-a4a0-861673402af7)
 
 ## Features
 
@@ -22,8 +20,6 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 - Password Encoding for secure user credentials
 - Docker support (multi-stage build & run)
 
----
-
 ## Technology Stack
 
 - Spring Boot
@@ -34,8 +30,6 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 - Docker & Docker Compose
 - Postman for API testing
 
----
-
 ## Requirements
 
 - Java 17 or higher
@@ -43,7 +37,6 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 - Docker and Docker Compose installed
 - PostgreSQL database running
 
----
 
 ## API Endpoints
 
@@ -57,7 +50,6 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 | POST   | /user/changePassword       | Change current password |
 | GET/PUT/DELETE | /user/{id}          | Retrieve, update, or delete a user |
 
----
 
 ## Outputs
 ## Register New User
