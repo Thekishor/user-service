@@ -14,7 +14,7 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 - User Registration with email verification
 - Resend Verification Token for unverified users
 - Password Reset using secure tokens
-- Token Auto-Expiration (5 minutes for reset/verification tokens)
+- Token Auto-Expiration/Deleted (2 minutes for reset/verification tokens)
 - Spring Security integration (`/user/**` endpoints publicly accessible)
 - Java Mail integration for sending emails
 - Password Encoding for secure user credentials
@@ -32,9 +32,9 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 
 ## Requirements
 
-- Java 17 or higher
+- Java 21 
 - Maven
-- Docker and Docker Compose installed
+- Docker and Docker Compose(for host.docker.env)
 - PostgreSQL database running
 
 
