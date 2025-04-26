@@ -67,6 +67,9 @@ Built with PostgreSQL, Spring Security, Java Mail Sender, and Dockerized for pro
 ## Change Password With Validation
 ![Change Password with validation check](https://github.com/user-attachments/assets/4e03530b-144c-4fb8-848d-d9b4129d74e7)
 
+## Password Change Validation
+![Password](https://github.com/user-attachments/assets/a0c721e6-7678-4c20-94cc-1e9b19a49e18)
+
 ## Password Change Successfully
 ![Password Change Successfully](https://github.com/user-attachments/assets/b5ed6c7f-5d8e-4af3-9a0a-d3e023cea2c8)
 
