@@ -8,10 +8,10 @@ import com.user_service.entities.VerificationToken;
 import com.user_service.exception.ResourceNotFoundException;
 import com.user_service.exception.UserAlreadyExistsException;
 import com.user_service.exception.UserAlreadyVerifiedException;
+import com.user_service.mapper.UserMapper;
 import com.user_service.repository.PasswordResetTokenRepo;
 import com.user_service.repository.UserRepo;
 import com.user_service.repository.VerificationTokenRepo;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
     private VerificationTokenRepo verificationTokenRepo;
 
     @Autowired
-    private ModelMapper modelMapper;
+    private UserMapper userMapper;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService{
         if (userRepo.existsByEmail(userRequest.getEmail())){
             throw new UserAlreadyExistsException("User", "email Id");
         }
-        User user = modelMapper.map(userRequest, User.class);
+        User user = userMapper.userDtoToUser(userRequest);
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         User saveUser = userRepo.save(user);
         return user;
@@ -55,13 +55,13 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserResponse getUserById(Long id) {
         User user = userRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("User", "id", id));
-        return modelMapper.map(user, UserResponse.class);
+        return userMapper.userToUserResponse(user);
     }
 
     @Override
     public List<UserResponse> getAllUsers() {
         List<User> users = userRepo.findAll();
-        return users.stream().map(user -> modelMapper.map(user, UserResponse.class)).toList();
+        return users.stream().map(user -> userMapper.userToUserResponse(user)).toList();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService{
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         user.setRole(userRequest.getRole());
         User updatedUser = userRepo.save(user);
-        return modelMapper.map(updatedUser, UserResponse.class);
+        return userMapper.userToUserResponse(updatedUser);
     }
 
     @Override
